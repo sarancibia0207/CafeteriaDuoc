@@ -1,0 +1,34 @@
+package com.example.cafeteriaduoc.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name = "metodosPago")
+public class Metodospago {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer metodosPago_id;
+
+    @ManyToOne
+    @JoinColumn(name = "metodoPago_id")
+    private Metodopago metodopago;
+
+    @ManyToOne
+    @JoinColumn(name = "meotodoPago_id")
+    private Ventas ventas;
+}
