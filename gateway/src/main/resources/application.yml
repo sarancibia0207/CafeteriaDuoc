@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: msubicacion-service
+              uri: lb://msubicacion
+              predicates:
+                - Path=/api/v1/comunas/**, /api/v1/regiones/**, /api/v1/cafeterias/**, /msubicacion/api-docs/**
+
+            - id: mscliente-service
+              uri: lb://mscliente
+              predicates:
+                - Path=/api/v1/clientes/**, /mscliente/api-docs/**
+
+            - id: msproductos-service
+              uri: lb://msproductos
+              predicates:
+                - Path=/api/v1/productos/**, /api/v1/ingredientes/**, /api/v1/tamanos/**, /api/v1/tipos/**, /api/v1/tipoingredientes/**, /api/v1/pasosrecetas/**, /msproductos/api-docs/**
+
+            - id: msventa-service
+              uri: lb://msventa
+              predicates:
+                - Path=/api/v1/ventas/**, /api/v1/metodospago/**, /api/v1/ventasmetodospago/**, /api/v1/productoventa/**, /msventa/api-docs/**
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    urls:
+      - name: Microservicio Ubicación
+        url: /msubicacion/api-docs
+      - name: Microservicio Cliente
+        url: /mscliente/api-docs
+      - name: Microservicio Productos
+        url: /msproductos/api-docs
+      - name: Microservicio Venta
+        url: /msventa/api-docs
+  api-docs:
+    enabled: true
