@@ -9,6 +9,12 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-  server:
-    wait-time-in-ms-when-sync-empty: 0
-#exclusivo de eureka
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
