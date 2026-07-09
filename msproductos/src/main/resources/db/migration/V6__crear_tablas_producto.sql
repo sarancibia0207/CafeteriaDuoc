@@ -1,6 +1,6 @@
 CREATE TABLE producto (
     producto_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    nombre VARCHAR(20) NOT NULL,
     precio INT NOT NULL,
     stock INT NOT NULL DEFAULT 100
 );

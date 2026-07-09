@@ -33,8 +33,8 @@ public class Producto {
     private Integer productoId;
     
     @NotBlank (message = "El nombre del producto no puede estar vacío.")
-    @Size(min = 2, max = 100, message = "El nombre debe tener entre 2 y 100 caracteres")
-    @Column(nullable = false, length = 100)
+    @Size(min = 2, max = 20, message = "El nombre debe tener entre 2 y 100 caracteres")
+    @Column(nullable = false, length = 20)
     private String nombre;
 
     @NotNull (message = "El precio del producto no puede ser nulo.")
